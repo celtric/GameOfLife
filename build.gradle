@@ -8,13 +8,36 @@ repositories {
     mavenCentral()
 }
 
+apply plugin: "jacoco"
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     testImplementation "org.junit.jupiter:junit-jupiter:5.5.1"
 }
 
-tasks.test {
+test {
     useJUnitPlatform()
+}
+
+test.finalizedBy jacocoTestCoverageVerification
+
+jacoco {
+    toolVersion = "0.8.4"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            excludes = ["celtric.katas.gameoflife.acceptance.*"]
+
+            limit {
+                counter = "LINE"
+                value = "TOTALCOUNT"
+                maximum = 0
+            }
+        }
+    }
 }
 
 compileKotlin {
