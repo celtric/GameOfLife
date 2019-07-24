@@ -33,8 +33,8 @@ tasks.jacocoTestCoverageVerification {
 
             limit {
                 counter = "LINE"
-                value = "TOTALCOUNT"
-                maximum = 0.toBigDecimal()
+                value = "COVEREDRATIO"
+                minimum = 1.0.toBigDecimal()
             }
         }
     }
