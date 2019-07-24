@@ -6,26 +6,54 @@ import org.junit.jupiter.api.Test
 class RulesTests {
 
     @Test fun `any live cell with fewer than two live neighbours dies as if caused by underpopulation`() {
-        assertFalse(Neighbourhood(liveCells = 0).isNextGenerationAlive(true))
-        assertFalse(Neighbourhood(liveCells = 1).isNextGenerationAlive(true))
+        aliveCell(withNeighbours = 0).assertDies()
+        aliveCell(withNeighbours = 1).assertDies()
     }
 
     @Test fun `any live cell with two or three live neighbours lives on to the next generation`() {
-        assertTrue(Neighbourhood(liveCells = 2).isNextGenerationAlive(true))
-        assertTrue(Neighbourhood(liveCells = 3).isNextGenerationAlive(true))
+        aliveCell(withNeighbours = 2).assertSurvives()
+        aliveCell(withNeighbours = 3).assertSurvives()
     }
 
     @Test fun `any live cell with more than three live neighbours dies as if by overpopulation`() {
-        assertFalse(Neighbourhood(liveCells = 4).isNextGenerationAlive(true))
-        assertFalse(Neighbourhood(liveCells = 8).isNextGenerationAlive(true))
+        aliveCell(withNeighbours = 4).assertDies()
+        aliveCell(withNeighbours = 8).assertDies()
     }
 
     @Test fun `any dead cell with exactly three live neighbours becomes a live cell as if by reproduction`() {
-        assertTrue(Neighbourhood(liveCells = 3).isNextGenerationAlive(false))
+        deadCell(withNeighbours = 3).assertBecomesAlive()
     }
 
     @Test fun `any dead cell remains dead if not located in a fertile neighbourhood`() {
-        assertFalse(Neighbourhood(liveCells = 2).isNextGenerationAlive(false))
-        assertFalse(Neighbourhood(liveCells = 4).isNextGenerationAlive(false))
+        deadCell(withNeighbours = 2).assertRemainsDead()
+        deadCell(withNeighbours = 4).assertRemainsDead()
     }
+
+    // TODO: remove before starting kata
+    private class Cell(val isAlive: Boolean, val neighbours: Int) {
+
+        fun assertDies() {
+            assertFalse(Neighbourhood(neighbours).isNextGenerationAlive(isAlive))
+        }
+
+        fun assertRemainsDead() {
+            assertDies()
+        }
+
+        fun assertSurvives() {
+            assertTrue(Neighbourhood(neighbours).isNextGenerationAlive(isAlive))
+        }
+
+        fun assertBecomesAlive() {
+            assertSurvives()
+        }
+    }
+
+    // TODO: remove before starting kata
+    private fun aliveCell(withNeighbours: Int): Cell =
+        Cell(true, withNeighbours)
+
+    // TODO: remove before starting kata
+    private fun deadCell(withNeighbours: Int): Cell =
+        Cell(false, withNeighbours)
 }
