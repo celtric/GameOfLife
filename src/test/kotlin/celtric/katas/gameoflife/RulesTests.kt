@@ -29,7 +29,8 @@ class RulesTests {
         deadCell(withNeighbours = 4).assertRemainsDead()
     }
 
-    // TODO: remove before starting kata
+    //---[ To remove before starting kata ]---------------------------------------------//
+
     private class Cell(val isAlive: Boolean, val neighbours: Int) {
 
         fun assertDies() {
@@ -49,11 +50,9 @@ class RulesTests {
         }
     }
 
-    // TODO: remove before starting kata
     private fun aliveCell(withNeighbours: Int): Cell =
         Cell(true, withNeighbours)
 
-    // TODO: remove before starting kata
     private fun deadCell(withNeighbours: Int): Cell =
         Cell(false, withNeighbours)
 }

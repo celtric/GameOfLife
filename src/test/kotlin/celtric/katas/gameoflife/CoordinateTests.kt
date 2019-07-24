@@ -19,7 +19,8 @@ class CoordinateTests {
         neighbours.assertContains( 1,  1)
     }
 
-    // TODO: remove before starting kata
+    //---[ To remove before starting kata ]---------------------------------------------//
+
     private class Neighbours(private val coordinates: Collection<Coordinate>) {
 
         fun assertSize(expected: Int) {
@@ -31,7 +32,6 @@ class CoordinateTests {
         }
     }
 
-    // TODO: remove before starting kata
     private fun neighboursOf(x: Int, y: Int): Neighbours =
         Neighbours(Coordinate(x, y).neighbours())
 }
