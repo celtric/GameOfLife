@@ -4,7 +4,7 @@ import celtric.katas.gameoflife.acceptance.AcceptanceTestCase
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class StillLivesTest : AcceptanceTestCase() {
+class StillLivesTests : AcceptanceTestCase() {
 
     @Test fun block() {
         val game = game(4,

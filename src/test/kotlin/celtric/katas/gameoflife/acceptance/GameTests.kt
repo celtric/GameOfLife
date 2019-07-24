@@ -3,7 +3,7 @@ package celtric.katas.gameoflife.acceptance
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class GameTest : AcceptanceTestCase() {
+class GameTests : AcceptanceTestCase() {
 
     @Test fun `an empty universe does not evolve`() {
         val game = game(3,

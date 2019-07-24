@@ -4,7 +4,7 @@ import celtric.katas.gameoflife.acceptance.AcceptanceTestCase
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class OscillatorsTest : AcceptanceTestCase() {
+class OscillatorsTests : AcceptanceTestCase() {
 
     @Test fun blinker() {
         val game = game(3,

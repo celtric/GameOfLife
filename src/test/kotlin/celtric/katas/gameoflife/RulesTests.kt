@@ -3,7 +3,7 @@ package celtric.katas.gameoflife
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-class RulesTest {
+class RulesTests {
 
     @Test fun `any live cell with fewer than two live neighbours dies as if caused by underpopulation`() {
         assertFalse(Neighbourhood(liveCells = 0).isNextGenerationAlive(true))
