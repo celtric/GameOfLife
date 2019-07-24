@@ -28,31 +28,4 @@ class RulesTests {
         deadCell(withNeighbours = 2).assertRemainsDead()
         deadCell(withNeighbours = 4).assertRemainsDead()
     }
-
-    //---[ To remove before starting kata ]---------------------------------------------//
-
-    private class Cell(val isAlive: Boolean, val neighbours: Int) {
-
-        fun assertDies() {
-            assertFalse(Neighbourhood(neighbours).isNextGenerationAlive(isAlive))
-        }
-
-        fun assertRemainsDead() {
-            assertDies()
-        }
-
-        fun assertSurvives() {
-            assertTrue(Neighbourhood(neighbours).isNextGenerationAlive(isAlive))
-        }
-
-        fun assertBecomesAlive() {
-            assertSurvives()
-        }
-    }
-
-    private fun aliveCell(withNeighbours: Int): Cell =
-        Cell(true, withNeighbours)
-
-    private fun deadCell(withNeighbours: Int): Cell =
-        Cell(false, withNeighbours)
 }

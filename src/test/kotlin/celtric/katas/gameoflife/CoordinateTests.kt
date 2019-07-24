@@ -18,20 +18,4 @@ class CoordinateTests {
         neighbours.assertContains( 0,  1)
         neighbours.assertContains( 1,  1)
     }
-
-    //---[ To remove before starting kata ]---------------------------------------------//
-
-    private class Neighbours(private val coordinates: Collection<Coordinate>) {
-
-        fun assertSize(expected: Int) {
-            assertEquals(expected, coordinates.size)
-        }
-
-        fun assertContains(x: Int, y: Int) {
-            assertTrue(coordinates.contains(Coordinate(x, y)))
-        }
-    }
-
-    private fun neighboursOf(x: Int, y: Int): Neighbours =
-        Neighbours(Coordinate(x, y).neighbours())
 }
