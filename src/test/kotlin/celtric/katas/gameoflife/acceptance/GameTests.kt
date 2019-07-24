@@ -1,5 +1,6 @@
 package celtric.katas.gameoflife.acceptance
 
+import celtric.katas.gameoflife.World
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
