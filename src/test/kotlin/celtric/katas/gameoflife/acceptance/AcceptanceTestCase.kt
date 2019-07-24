@@ -3,7 +3,7 @@ package celtric.katas.gameoflife.acceptance
 import celtric.katas.gameoflife.Game
 
 abstract class AcceptanceTestCase {
-    val a = 1
+    val X = 1
 
     protected fun game(width: Int, vararg cellStates: Int): Game {
         val game = Game()
