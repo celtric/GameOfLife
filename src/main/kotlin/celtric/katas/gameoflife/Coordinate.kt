@@ -1,6 +1,6 @@
 package celtric.katas.gameoflife
 
-data class Coordinate(val x: Int, val y: Int) {
+data class Coordinate(private val x: Int, private val y: Int) {
 
     fun neighbours(): Set<Coordinate> =
         range(x)
