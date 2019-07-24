@@ -28,4 +28,11 @@ class RulesTests {
         deadCell(withNeighbours = 2).assertRemainsDead()
         deadCell(withNeighbours = 4).assertRemainsDead()
     }
+
+    private fun aliveCell(withNeighbours: Int): Any { TODO() }
+    private fun deadCell(withNeighbours: Int): Any { TODO() }
+    private fun Any.assertDies() { TODO() }
+    private fun Any.assertRemainsDead() { TODO() }
+    private fun Any.assertSurvives() { TODO() }
+    private fun Any.assertBecomesAlive() { TODO() }
 }

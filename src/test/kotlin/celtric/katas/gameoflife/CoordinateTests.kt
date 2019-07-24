@@ -18,4 +18,8 @@ class CoordinateTests {
         neighbours.assertContains( 0,  1)
         neighbours.assertContains( 1,  1)
     }
+
+    private fun neighboursOf(foo: Int, bar: Int): Any { TODO() }
+    private fun Any.assertSize(foo: Int) { TODO() }
+    private fun Any.assertContains(foo: Int, bar: Int) { TODO() }
 }
