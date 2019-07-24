@@ -19,7 +19,7 @@ class CoordinateTests {
         neighbours.assertContains( 1,  1)
     }
 
-    private fun neighboursOf(foo: Int, bar: Int): Any { TODO() }
-    private fun Any.assertSize(foo: Int) { TODO() }
-    private fun Any.assertContains(foo: Int, bar: Int) { TODO() }
+    private fun neighboursOf(x: Int, y: Int): Collection<Coordinate> = Coordinate(x, y).neighbours()
+    private fun Collection<Coordinate>.assertSize(expected: Int) { assertEquals(expected, size) }
+    private fun Collection<Coordinate>.assertContains(x: Int, y: Int) { assertTrue(contains(Coordinate(x, y))) }
 }
